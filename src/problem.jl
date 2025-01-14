@@ -35,6 +35,8 @@ See also: [`bo!`](@ref)
     y_max::AbstractVector{<:Real} = fill(Inf, y_dim(data))
 end
 
+Base.copy(problem::BossProblem) = BossProblem(getfield.(Ref(problem), fieldnames(BossProblem))...)
+
 """
     slice(::BossProblem, slice::Int) -> ::BossProblem
 
